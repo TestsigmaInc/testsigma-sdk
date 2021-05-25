@@ -1,9 +1,9 @@
 package com.testsigma.sdk;
 
+import com.testsigma.sdk.driver.RemoteWebDriver;
 import lombok.Setter;
-import org.openqa.selenium.WebDriver;
 
 public abstract class DriverNLP extends NLP {
   @Setter
-  private WebDriver driver;
+  protected RemoteWebDriver driver;
 }
