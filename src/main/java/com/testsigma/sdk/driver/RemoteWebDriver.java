@@ -1,4 +1,8 @@
 package com.testsigma.sdk.driver;
 
-public class RemoteWebDriver extends org.openqa.selenium.remote.RemoteWebDriver {
+import lombok.Data;
+
+@Data
+public class RemoteWebDriver {
+    private org.openqa.selenium.remote.RemoteWebDriver driver;
 }
