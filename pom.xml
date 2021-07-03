@@ -9,13 +9,13 @@
     <version>1.0.0</version>
 
     <properties>
-        <java.version>9</java.version>
+        <java.version>11</java.version>
         <selenium.version>3.141.59</selenium.version>
         <apache.commons.version>3.12.0</apache.commons.version>
         <lombok.version>1.18.20</lombok.version>
         <appium.version>7.0.0</appium.version>
-        <maven.compiler.source>9</maven.compiler.source>
-        <maven.compiler.target>9</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <maven-toolchains-plugin>3.0.0</maven-toolchains-plugin>
     </properties>
 
@@ -76,7 +76,7 @@
                         <configuration>
                             <toolchains>
                                 <jdk>
-                                    <version>9</version>
+                                    <version>11</version>
                                 </jdk>
                             </toolchains>
                         </configuration>
