@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Runner {
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public Runner(WebDriver driver) throws Exception {
         if(driver == null){
@@ -32,7 +32,7 @@ public class Runner {
             }
         }
         setDriverToUiIdentifier(nlpObject, uiIdentifierFields);
-        Method execute = nlpObject.getClass().getMethod("execute",null);
+        Method execute = nlpObject.getClass().getMethod("execute");
         execute.setAccessible(true);
         execute.invoke(nlpObject);
     }
@@ -40,14 +40,12 @@ public class Runner {
     private void setDriverToUiIdentifier(NLP nlpObject, List<Field> uiIdentifierFields) throws Exception {
         for (Field uiIdentifierField : uiIdentifierFields) {
             com.testsigma.sdk.UIIdentifier uiIdentifierObj = (com.testsigma.sdk.UIIdentifier) uiIdentifierField.get(nlpObject);
-            uiIdentifierObj.setWebDriver(driver);
+            uiIdentifierObj.setDriver(driver);
             FieldUtils.writeField(uiIdentifierField, nlpObject, uiIdentifierObj, true);
         }
     }
     public void quit() {
-        if (driver != null) {
-            driver.quit();
-        }
+        driver.quit();
     }
 
 }
