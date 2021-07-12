@@ -60,7 +60,16 @@
             <artifactId>maven-toolchains-plugin</artifactId>
             <version>${maven-toolchains-plugin}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
