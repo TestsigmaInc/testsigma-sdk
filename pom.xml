@@ -8,6 +8,25 @@
     <artifactId>testsigma-sdk</artifactId>
     <version>1.0.0</version>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>Testsigma Technologies Inc</name>
+        <url>https://testsigma.com</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>Testsigma Technologies Inc</id>
+            <name>Testsigma Technologies Inc</name>
+            <email>engineering@testsigma.com</email>
+        </developer>
+    </developers>
+
     <properties>
         <java.version>11</java.version>
         <selenium.version>3.141.59</selenium.version>
