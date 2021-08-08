@@ -44,7 +44,6 @@
         <appium.version>7.0.0</appium.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <maven-toolchains-plugin>3.0.0</maven-toolchains-plugin>
     </properties>
 
     <dependencies>
@@ -82,12 +81,6 @@
             <artifactId>commons-lang3</artifactId>
             <version>${apache.commons.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-toolchains-plugin</artifactId>
-            <version>${maven-toolchains-plugin}</version>
-        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -99,7 +92,7 @@
             <version>3.141.59</version>
         </dependency>
     </dependencies>
-
+    
     <distributionManagement>
         <repository>
             <id>ossrh</id>
