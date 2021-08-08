@@ -7,6 +7,9 @@
     <groupId>com.testsigma</groupId>
     <artifactId>testsigma-sdk</artifactId>
     <version>1.0.0</version>
+    <name>Testsigma SDK</name>
+    <description>Testsigma SDK</description>
+    <url>https://github.com/TestsigmaInc/testsigma-sdk</url>
 
     <licenses>
         <license>
@@ -23,9 +26,15 @@
         <developer>
             <id>Testsigma Technologies Inc</id>
             <name>Testsigma Technologies Inc</name>
-            <email>engineering@testsigma.com</email>
+            <email>vikram@testsigma.com</email>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/TestsigmaInc/testsigma-sdk.git</connection>
+        <developerConnection>scm:git:ssh://github.com:TestsigmaInc/testsigma-sdk.git</developerConnection>
+        <url>https://github.com/TestsigmaInc/testsigma-sdk/tree/master</url>
+    </scm>
 
     <properties>
         <java.version>11</java.version>
@@ -90,24 +99,68 @@
             <version>3.141.59</version>
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-toolchains-plugin</artifactId>
-                <version>${maven-toolchains-plugin}</version>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
+                        <id>attach-sources</id>
                         <goals>
-                            <goal>toolchain</goal>
+                            <goal>jar-no-fork</goal>
                         </goals>
-                        <configuration>
-                            <toolchains>
-                                <jdk>
-                                    <version>11</version>
-                                </jdk>
-                            </toolchains>
-                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
