@@ -3,6 +3,7 @@ package com.testsigma.sdk;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -15,7 +16,11 @@ public class UIIdentifier {
     private WebDriver driver;
 
     public void findElement() {
-        this.element = driver.findElement(by);
+        try{
+            this.element = driver.findElement(by);
+        } catch(NoSuchElementException ex){
+            throw new NoSuchElementException(String.format("Element could not be found using the given criteria - <b>\"%s:%s\"</b>", this.by, this.value));
+        }
     }
 
     public WebElement getElement() {

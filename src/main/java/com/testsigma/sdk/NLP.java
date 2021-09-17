@@ -10,6 +10,7 @@ public abstract class NLP{
   protected String errorMessage;
   protected String successMessage;
   private StringBuffer loggedMessages = new StringBuffer();
+  protected com.testsigma.sdk.Logger logger = new Logger(new StringBuilder(""));
 
   protected abstract void execute() throws Exception;
 
