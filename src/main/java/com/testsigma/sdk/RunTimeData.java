@@ -8,4 +8,5 @@ import lombok.RequiredArgsConstructor;
 @Data
 public class RunTimeData {
   private Object value;
+  private String key;
 }

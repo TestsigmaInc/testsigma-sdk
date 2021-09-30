@@ -15,7 +15,7 @@ public class UIIdentifier {
     private WebElement element;
     private WebDriver driver;
 
-    public void findElement() {
+    public void findElement() throws NoSuchElementException {
         try{
             this.element = driver.findElement(by);
         } catch(NoSuchElementException ex){

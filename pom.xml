@@ -6,7 +6,7 @@
 
     <groupId>com.testsigma</groupId>
     <artifactId>testsigma-sdk</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>Testsigma SDK</name>
     <description>Testsigma SDK</description>
     <url>https://github.com/TestsigmaInc/testsigma-sdk</url>

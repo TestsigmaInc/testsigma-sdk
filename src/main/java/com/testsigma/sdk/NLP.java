@@ -3,6 +3,7 @@ package com.testsigma.sdk;
 
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.NoSuchElementException;
 
 @Data
 public abstract class NLP{
@@ -12,7 +13,7 @@ public abstract class NLP{
   private StringBuffer loggedMessages = new StringBuffer();
   protected com.testsigma.sdk.Logger logger = new Logger(new StringBuilder(""));
 
-  protected abstract void execute() throws Exception;
+  protected abstract Result execute() throws NoSuchElementException;
 
   protected void setErrorMessage(String errorMessage) {
     this.errorMessage = StringUtils.abbreviate(errorMessage, MESSAGE_MAX_SIZE);
