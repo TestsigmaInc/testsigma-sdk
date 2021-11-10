@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface NLP {
+public @interface Action {
   String grammar();
   ApplicationType applicationType() default ApplicationType.WEB;
   String description() default "";
