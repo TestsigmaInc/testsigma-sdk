@@ -1,5 +1,6 @@
 package com.testsigma.sdk.annotation;
 
+import com.testsigma.sdk.StepActionType;
 import com.testsigma.sdk.ApplicationType;
 
 import java.lang.annotation.ElementType;
@@ -10,8 +11,9 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Action {
-  String grammar();
+  String actionText();
   ApplicationType applicationType() default ApplicationType.WEB;
+  StepActionType actionType() default StepActionType.NOT_USED;
   String description() default "";
   boolean deprecated() default false;
 }

@@ -11,4 +11,5 @@ public @interface TestData {
   String reference() default "test-data";
   String description() default "";
   boolean deprecated() default false;
+  String[] allowedValues() default {};
 }
