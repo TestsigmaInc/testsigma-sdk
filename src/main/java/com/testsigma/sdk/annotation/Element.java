@@ -7,8 +7,8 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface UIIdentifier {
-  String reference() default "ui-identifier";
+public @interface Element {
+  String reference() default "element";
   String description() default "";
   boolean deprecated() default false;
 }

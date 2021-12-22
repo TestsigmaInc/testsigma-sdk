@@ -1,8 +1,8 @@
 package com.testsigma.sdk.runners;
 
-import com.testsigma.sdk.DriverNLP;
-import com.testsigma.sdk.NLP;
-import com.testsigma.sdk.annotation.UIIdentifier;
+import com.testsigma.sdk.DriverAction;
+import com.testsigma.sdk.Action;
+import com.testsigma.sdk.annotation.Element;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import org.openqa.selenium.WebDriver;
 
@@ -21,29 +21,30 @@ public class Runner {
         this.driver = driver;
     }
 
-    public void run(DriverNLP nlpObject) throws Exception {
-        nlpObject.setDriver(driver);
-        List<Field> uiIdentifierFields = new ArrayList<>();
-        Field[] declaredFields = nlpObject.getClass().getDeclaredFields();
+    public void run(DriverAction actionObject) throws Exception {
+        actionObject.setDriver(driver);
+        List<Field> elementFields = new ArrayList<>();
+        Field[] declaredFields = actionObject.getClass().getDeclaredFields();
         for (Field declaredField : declaredFields) {
-           if (declaredField.isAnnotationPresent(UIIdentifier.class)) {
+           if (declaredField.isAnnotationPresent(Element.class)) {
                 declaredField.setAccessible(true);
-                uiIdentifierFields.add(declaredField);
+                elementFields.add(declaredField);
             }
         }
-        setDriverToUiIdentifier(nlpObject, uiIdentifierFields);
-        Method execute = nlpObject.getClass().getMethod("execute");
+        setDriverToElement(actionObject, elementFields);
+        Method execute = actionObject.getClass().getMethod("execute");
         execute.setAccessible(true);
-        execute.invoke(nlpObject);
+        execute.invoke(actionObject);
     }
 
-    private void setDriverToUiIdentifier(NLP nlpObject, List<Field> uiIdentifierFields) throws Exception {
-        for (Field uiIdentifierField : uiIdentifierFields) {
-            com.testsigma.sdk.UIIdentifier uiIdentifierObj = (com.testsigma.sdk.UIIdentifier) uiIdentifierField.get(nlpObject);
-            uiIdentifierObj.setDriver(driver);
-            FieldUtils.writeField(uiIdentifierField, nlpObject, uiIdentifierObj, true);
+    private void setDriverToElement(Action actionObject, List<Field> elementFields) throws Exception {
+        for (Field elementField : elementFields) {
+            com.testsigma.sdk.Element elementObj = (com.testsigma.sdk.Element) elementField.get(actionObject);
+            elementObj.setDriver(driver);
+            FieldUtils.writeField(elementField, actionObject, elementObj, true);
         }
     }
+
     public void quit() {
         driver.quit();
     }

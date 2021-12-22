@@ -6,7 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.NoSuchElementException;
 
 @Data
-public abstract class NLP{
+public abstract class Action {
   private static final int MESSAGE_MAX_SIZE = 500;
   protected String errorMessage;
   protected String successMessage;

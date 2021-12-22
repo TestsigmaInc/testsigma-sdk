@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 @RequiredArgsConstructor
 @Data
-public class UIIdentifier {
+public class Element {
     private final String value;
     private final By by;
     private WebElement element;
