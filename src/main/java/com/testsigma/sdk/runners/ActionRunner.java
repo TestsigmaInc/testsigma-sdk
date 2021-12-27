@@ -11,10 +11,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Runner {
+public class ActionRunner {
     private final WebDriver driver;
 
-    public Runner(WebDriver driver) throws Exception {
+    public ActionRunner(WebDriver driver) throws Exception {
         if(driver == null){
             throw new Exception("Please provide a valid WebDriver object");
         }
