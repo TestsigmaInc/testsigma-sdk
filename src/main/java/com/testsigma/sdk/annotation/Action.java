@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
 public @interface Action {
   String actionText();
   ApplicationType applicationType() default ApplicationType.WEB;
-  StepActionType actionType() default StepActionType.NOT_USED;
+  StepActionType actionType() default StepActionType.NONE;
   String description() default "";
   boolean deprecated() default false;
 }
