@@ -2,6 +2,7 @@ package com.testsigma.sdk;
 
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
+import org.openqa.selenium.NoSuchElementException;
 
 @Data
 public abstract class TestDataFunction {
@@ -22,4 +23,7 @@ public abstract class TestDataFunction {
   protected void log(Object message) {
     loggedMessages.append(message.toString()).append("<br>");
   }
+
+
+  protected abstract TestData generate() throws Exception;
 }
